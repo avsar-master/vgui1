@@ -38,7 +38,7 @@ static Dar<BaseFontPlat*> staticFontPlatDar;
 
 FontPlat::FontPlat(const char* name,int tall,int wide,float rotation,int weight,bool italic,bool underline,bool strikeout,bool symbol)
 {
-	m_szName = strdup(name);
+	m_szName = _strdup(name);
 	m_iTall = tall;
 	m_iWide = wide;
 	m_flRotation = rotation;
@@ -108,7 +108,7 @@ FontPlat::~FontPlat()
 
 bool FontPlat::equals(const char* name,int tall,int wide,float rotation,int weight,bool italic,bool underline,bool strikeout,bool symbol)
 {
-	if (!stricmp(name, m_szName) 
+	if (!_stricmp(name, m_szName) 
 		&& m_iTall == tall
 		&& m_iWide == wide
 		&& m_flRotation == rotation
@@ -309,7 +309,7 @@ void Font::init(const char* name,void *pFileData,int fileDataLen, int tall,int w
 {
 	FontPlat_Bitmap*pBitmapFont=null;
 
-	_name=strdup(name);
+	_name=_strdup(name);
 	_id=-1;
 
 	if(pFileData!=null)
